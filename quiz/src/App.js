@@ -1,20 +1,25 @@
 import React, { useContext } from 'react';
-import SetForm from './form';
+import { QuizContext } from './context/context';
 
-import { QuizContext } from './context';
+import SetQuizForm from './components/form/set-quiz-form.component';
+import QuestionDisplay from './components/question-display/question-display.component';
+import Result from './components/result/result.component';
 
 import './App.css';
 
 function App() {
 
-  const { showStartForm } = useContext(QuizContext);
+  const { showStartForm, showResult, quizEnded } = useContext(QuizContext);
 
-  console.log('showStartForm', showStartForm);
+
+  // console.log('showStartForm', showStartForm);
+  // console.log('showResult', showResult) 
 
   return (
     <div className="App">
-      {showStartForm && <SetForm />}
-      {/* <button onClick={hider} type="button">Change visibility</button> */}
+      {showStartForm && !quizEnded && <SetQuizForm />}
+      {!showStartForm && !quizEnded && <QuestionDisplay />}
+      {showResult && quizEnded && <Result />}
     </div>
   );
 }

@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
-import { QuizContext } from './context';
+import { QuizContext } from '../../context/context';
 
 
-const SetForm = () => {
-  const { prerequisites, handleChange } = useContext(QuizContext);
+import './set-quiz-form.styles.css';
+
+
+const SetQuizForm = () => {
+  const { prerequisites, handleChange, handleAxiosTrigger } = useContext(QuizContext);
 
   return (
 
-    <form style={{ border: '1px solid #000', padding: 10, display: 'flex', flexDirection: 'column', width: 500 }}>
+    <form onSubmit={handleAxiosTrigger} style={{ border: '1px solid #000', padding: 10, display: 'flex', flexDirection: 'column', width: 500 }}>
 
       <h2>Welcome! Please choose prerequisites and click START NOW!</h2>
 
@@ -20,6 +23,8 @@ const SetForm = () => {
         value={prerequisites.totalQuestions}
         onChange={handleChange}
         name="totalQuestions"
+        min={1}
+        max={10}
       />
 
 
@@ -32,7 +37,7 @@ const SetForm = () => {
         value={prerequisites.category}
       >
         <option value="history">History</option>
-        <option value="sport">Sport</option>
+        <option value="sports">Sports</option>
         <option value="geography">Geography</option>
       </select>
 
@@ -46,7 +51,7 @@ const SetForm = () => {
         name="difficulty"
         value={prerequisites.difficulty}
       >
-        <option value="easy">Eeas</option>
+        <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
@@ -59,4 +64,4 @@ const SetForm = () => {
 };
 
 
-export default SetForm;
+export default SetQuizForm;
