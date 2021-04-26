@@ -9,20 +9,17 @@ import './App.css';
 
 function App() {
 
-  const { showStartForm, showResult, quizEnded } = useContext(QuizContext);
-
-
-  // console.log('showStartForm', showStartForm);
-  // console.log('showResult', showResult) 
+  const { showStartForm, showResult, quizEnded, loadingData } = useContext(QuizContext);
 
   return (
     <div className="App">
       {showStartForm && !quizEnded && <SetQuizForm />}
-      {!showStartForm && !quizEnded && <QuestionDisplay />}
+      {!showStartForm && !quizEnded && !showResult && loadingData && <div><h1 style={{ color: '#4d375d' }}>Please wait...</h1></div>}
+      {!showStartForm && !quizEnded && !showResult && !loadingData && <QuestionDisplay />}
       {showResult && quizEnded && <Result />}
     </div>
   );
-}
+};
 
 
 

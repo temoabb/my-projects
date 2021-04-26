@@ -1,8 +1,6 @@
 import React from 'react';
 import './custom-button.styles.css';
 
-
-
 const CustomButton = ({ onClick, className, dangerouslySetInnerHTML, type, text }) => (
   <button
     type={type}
@@ -12,7 +10,5 @@ const CustomButton = ({ onClick, className, dangerouslySetInnerHTML, type, text 
     {text}
   </button>
 );
-
-
 
 export default CustomButton;

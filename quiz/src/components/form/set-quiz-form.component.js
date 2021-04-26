@@ -9,7 +9,7 @@ import './set-quiz-form.styles.css';
 
 
 const SetQuizForm = () => {
-  console.log('Now we are in Form!');
+  // console.log('Now we are in Form!');
 
   const { prerequisites, handleChange, handleAxiosTrigger } = useContext(QuizContext);
 
@@ -28,7 +28,7 @@ const SetQuizForm = () => {
         onChange={handleChange}
         name="totalQuestions"
         min={1}
-        max={10}
+        max={12}
       />
 
 
