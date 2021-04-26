@@ -1,0 +1,33 @@
+.quiz-form {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 40px 35px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.quiz-form-label {
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.quiz-form-heading {
+  margin-bottom: 15px;
+  color: #654977;
+}
+
+.quiz-form-input,
+.quiz-form-select {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #F1F5F8;
+}
+
+.submit-btn {
+  margin-top: 10px; 
+}

@@ -1,0 +1,80 @@
+.ideal-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* border: 1px solid  salmon; */
+  /* box-shadow: 1px 0 2px #4d4d4d; */
+  box-shadow: 0 0 1px #4d4d4d;
+  border-radius: 4px;
+  width: 1000px;
+  padding: 15px;
+  height: 550px;
+}
+
+
+.question-div {
+  height: 230px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 0 1px #4d4d4d;
+  padding: 15px;
+  align-items: center;
+  color: #0e0911;
+  border-radius: 4px;
+
+}
+
+
+.question {
+  text-align: center;
+}
+
+.current-result,
+.start-cancel-panel {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .start-cancel-panel {
+  justify-content: flex-end;
+
+} */
+
+.answers-div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 180px;
+}
+
+
+.answers-btn {
+  width: 45%;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+
+.start-again-btn {
+  background: #33a750;
+  margin-right: 10px;
+}
+
+.start-again-btn:hover {
+  background: #1f8037;
+}
+
+.cancel-btn {
+  background: salmon;
+}
+.cancel-btn:hover {
+  background: rgb(199, 93, 82);
+}

@@ -29,6 +29,8 @@ const CATEGORY_INDEXES = {
 
 
 export const QuizProvider = ({ children }) => {
+  console.log('Now we are in Context!');
+
   const [showStartForm, setShowStartForm] = useState(true);
   const [questionsBox, setQuestionsBox] = useState([]);
   const [questionIndex, setQuestionIndex] = useState(0);
@@ -45,11 +47,11 @@ export const QuizProvider = ({ children }) => {
 
 
 
-  // setting up form 
   const handleChange = event => {
 
     // to find out which one is event.target: 
     const { name } = event.target;
+
     // to find out what is event.target's value: 
     const { value } = event.target;
 
@@ -81,11 +83,13 @@ export const QuizProvider = ({ children }) => {
 
 
   const checkAnswer = (event) => {
+    console.log('Now we are checking the answer!');
+
     const innerText = event.target.innerText;
     const correctAnswer = questionsBox[questionIndex].correct_answer;
 
-    console.log('innerText is ', typeof innerText, innerText);
-    console.log('correctAnswer is ', typeof correctAnswer, correctAnswer);
+    console.log('innerText is', typeof innerText, innerText);
+    console.log('correctAnswer is', typeof correctAnswer, correctAnswer);
 
     if (innerText === correctAnswer && questionIndex + 1 < questionsBox.length) {
       setQuestionIndex(prevIndex => prevIndex + 1);
@@ -102,7 +106,7 @@ export const QuizProvider = ({ children }) => {
     } else if (innerText !== correctAnswer && questionIndex + 1 === questionsBox.length) {
       setShowResult(!showResult);
       setQuizEnded(true);
-    }
+    };
   };
 
 
@@ -111,12 +115,17 @@ export const QuizProvider = ({ children }) => {
 
 
   const handleStartAgain = () => {
+
+    console.log("Now we are restarting current Quiz!");
+
     setQuestionIndex(0);
     setAnswersSum(0);
   }
 
 
   const handleCancelAndTryAgain = () => {
+    console.log('Now we are cancelling our Quiz and returning to starting position!');
+
     setShowStartForm(true);
     setQuestionsBox([]);
     setQuestionIndex(0);
