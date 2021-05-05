@@ -121,15 +121,45 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+
+# This is the URL oath for general static files directory
 STATIC_URL = '/static/'
+
+
+# We still can not render out images. Bercause we need media URL;
+# I want to render out images from:
+MEDIA_URL = '/images/'
+# After this we should export 'MEDIA_URL' to our root 'urls.py' file (not app's urls.py! root's urls.py!)
+
+
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+# also we need here 'MEDIA_ROOT'
+# Because we have to tell django any time we have a file that user uploads from a model,
+# where are we going to upload these folders? 
+# Here below:
+MEDIA_ROOT = 'static/images'
+
+
+
+
+
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 
 CORS_ALLOW_ALL_ORIGINS = True
