@@ -131,7 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# We still can not render out images. Bercause we need media URL;
+# We still can not render out images. Because we need media URL
 # I want to render out images from:
 MEDIA_URL = '/images/'
 # After this we should export 'MEDIA_URL' to our root 'urls.py' file (not app's urls.py! root's urls.py!)
@@ -142,9 +142,12 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
-# also we need here 'MEDIA_ROOT'
-# Because we have to tell django any time we have a file that user uploads from a model,
-# where are we going to upload these folders? 
+
+
+# also we need here 'MEDIA_ROOT'. This is for user uploaded content.
+
+# Django asks us: 'Any time we have a file that user uploads from a model, where are we going to upload these folders?'
+
 # Here below:
 MEDIA_ROOT = 'static/images'
 
@@ -161,5 +164,5 @@ MEDIA_ROOT = 'static/images'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-
+# This was added by me: 
 CORS_ALLOW_ALL_ORIGINS = True

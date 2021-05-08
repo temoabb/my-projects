@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 
 import Rating from './Rating';
 
+// npm install redux react-redux redux-thunk redux-devtools-extension
 
 const Product = ({ _id, image, name, rating, numReviews, price }) => {
 
