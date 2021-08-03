@@ -6,7 +6,9 @@ import classes from './MealItem.module.css';
 
 
 const MealItem = ({ name, description, price, id }) => {
+
   const cartCtx = useContext(CartContext);
+
   const fixedPrice = `$${price.toFixed(2)}`;
 
   const addToCartHandler = (amount) => {

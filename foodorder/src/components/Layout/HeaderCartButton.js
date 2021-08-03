@@ -1,41 +1,47 @@
 import React, { useContext, useEffect, useState } from 'react';
-import CartIcon from '../Cart/CartIcon';
-import classes from './HeaderCartButton.module.css';
 
 import CartContext from '../../store/cart-context';
 
+import CartIcon from '../Cart/CartIcon';
+
+import classes from './HeaderCartButton.module.css';
+
+
 
 const HeaderCartButton = ({ onClick }) => {
+  // console.log('HeaderCartButton (bump) is running!');
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
+
   const cartCtx = useContext(CartContext);
 
-  // console.log('rerender')
   const { items } = cartCtx;
+  // console.log("file: HeaderCartButton.js ~ line 16 ~ items", items);
+
 
   const numberOfCartItems = items.reduce((curNumber, item) => {
     return curNumber + item.amount
   }, 0);
 
+  // console.log("file: HeaderCartButton.js ~ line 23 ~ numberOfCartItems ~ numberOfCartItems", numberOfCartItems)
+
   const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''} `;
 
   useEffect(() => {
-    if (items.length === 0) {
-      return
-    }
+    // console.log('bump effect');
+    if (items.length === 0) return;
 
     setBtnIsHighlighted(true);
 
     const timer = setTimeout(() => {
-      // console.log('set to false');
       setBtnIsHighlighted(false);
     }, 300)
 
     return () => {
-      // console.log('cleartimer');
       clearTimeout(timer)
     }
-
   }, [items])
+
+
   return (
     <button onClick={onClick} className={btnClasses}>
       <span className={classes.icon}><CartIcon /></span>
@@ -44,5 +50,6 @@ const HeaderCartButton = ({ onClick }) => {
     </button>
   )
 }
+
 
 export default HeaderCartButton;
