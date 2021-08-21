@@ -9,27 +9,21 @@ import classes from './HeaderCartButton.module.css';
 
 
 const HeaderCartButton = ({ onClick }) => {
-  // console.log('HeaderCartButton (bump) is running!');
   const [btnIsHighlighted, setBtnIsHighlighted] = useState(false);
 
   const cartCtx = useContext(CartContext);
 
   const { items } = cartCtx;
-  // console.log("file: HeaderCartButton.js ~ line 16 ~ items", items);
+  console.log(btnIsHighlighted);
 
 
-  const numberOfCartItems = items.reduce((curNumber, item) => {
-    return curNumber + item.amount
-  }, 0);
+  const numberOfCartItems = items.reduce((curNumber, item) => curNumber + item.amount, 0);
 
-  // console.log("file: HeaderCartButton.js ~ line 23 ~ numberOfCartItems ~ numberOfCartItems", numberOfCartItems)
 
   const btnClasses = `${classes.button} ${btnIsHighlighted ? classes.bump : ''} `;
 
   useEffect(() => {
-    // console.log('bump effect');
     if (items.length === 0) return;
-
     setBtnIsHighlighted(true);
 
     const timer = setTimeout(() => {
@@ -37,6 +31,7 @@ const HeaderCartButton = ({ onClick }) => {
     }, 300)
 
     return () => {
+      console.log('cleanUp func')
       clearTimeout(timer)
     }
   }, [items])
