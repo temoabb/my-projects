@@ -7,6 +7,7 @@ import QuoteDetail from './pages/QuoteDetail';
 import NotFound from './pages/NotFound';
 
 function App() {
+  console.log('App running');
 
   // Layout => <Fragment> MainNavigation, <main>{children}</main> </Fragment>
 

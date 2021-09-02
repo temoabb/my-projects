@@ -6,7 +6,6 @@ import LoadingSpinner from '../UI/LoadingSpinner';
 
 import classes from './QuoteForm.module.css';
 
-
 const QuoteForm = (props) => {
   const [isEntering, setIsEntering] = useState(false);
   const authorInputRef = useRef();
@@ -14,7 +13,6 @@ const QuoteForm = (props) => {
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    setIsEntering(false);
 
     const enteredAuthor = authorInputRef.current.value;
     const enteredText = textInputRef.current.value;
@@ -23,13 +21,11 @@ const QuoteForm = (props) => {
     props.onAddQuote({ author: enteredAuthor, text: enteredText });
   };
 
-
   const formFocusHandler = () => {
     setIsEntering(true);
   };
 
   const finishEnteringHandler = () => setIsEntering(false);
-
 
   return (
     <Fragment>
