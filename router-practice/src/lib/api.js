@@ -9,7 +9,7 @@ export const getAllQuotes = async () => {
     throw new Error(data.message || 'Could not fetch quotes.');
   }
 
-  console.log('firebase data', data);
+  // console.log('firebase data', data);
 
   const transformedQuotes = [];
 
@@ -24,7 +24,6 @@ export const getAllQuotes = async () => {
 
   return transformedQuotes;
 }
-
 
 export const getSingleQuote = async (quoteId) => {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes/${quoteId}.json`);
@@ -41,9 +40,6 @@ export const getSingleQuote = async (quoteId) => {
 
   return loadedQuote;
 }
-
-
-
 
 export const addQuote = async (quoteData) => {
   const response = await fetch(`${FIREBASE_DOMAIN}/quotes.json`, {
@@ -62,7 +58,8 @@ export const addQuote = async (quoteData) => {
   return null;
 }
 
-export async function addComment(requestData) {
+
+export const addComment = async (requestData) => {
   const response = await fetch(`${FIREBASE_DOMAIN}/comments/${requestData.quoteId}.json`, {
     method: 'POST',
     body: JSON.stringify(requestData.commentData),
@@ -70,6 +67,7 @@ export async function addComment(requestData) {
       'Content-Type': 'application/json',
     },
   });
+
   const data = await response.json();
 
   if (!response.ok) {
@@ -79,9 +77,10 @@ export async function addComment(requestData) {
   return { commentId: data.name };
 }
 
-export async function getAllComments(quoteId) {
-  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
 
+
+export const getAllComments = async (quoteId) => {
+  const response = await fetch(`${FIREBASE_DOMAIN}/comments/${quoteId}.json`);
   const data = await response.json();
 
   if (!response.ok) {

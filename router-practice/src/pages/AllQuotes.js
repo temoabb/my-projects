@@ -8,7 +8,7 @@ import LoadingSpinner from "../components/UI/LoadingSpinner";
 
 
 const AllQuotes = () => {
-  console.log('AllQuotes running');
+  // console.log('AllQuotes running');
 
   const { sendRequest, data: loadedQuotes, status, error } = useHttp(getAllQuotes, true);
 

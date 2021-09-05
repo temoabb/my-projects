@@ -16,12 +16,11 @@ import Comments from '../components/comments/Comments';
 
 const QuoteDetail = () => {
   const params = useParams();
-  console.log(params);
   const { quoteId } = params;
 
   const match = useRouteMatch();
-  console.log("match", match);
-  console.log("match.path", match.path);
+  // console.log("match", match);
+  // console.log("match.path", match.path);
 
   // getSingleQuote in useCallback dependencies (in useHttp)
   const { sendRequest: sendSingleQuoteRequest, status, data: loadedQuote, error } = useHttp(getSingleQuote, true);
