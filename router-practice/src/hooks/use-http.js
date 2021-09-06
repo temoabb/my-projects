@@ -30,7 +30,7 @@ const httpReducer = (state, action) => {
 }
 
 const useHttp = (requestFunction, startWithPending = false) => {
-  // console.log('custom hook is running');
+  console.log('custom hook is running');
 
   const [httpState, dispatch] = useReducer(httpReducer, {
     status: startWithPending ? 'pending' : null,
@@ -39,12 +39,11 @@ const useHttp = (requestFunction, startWithPending = false) => {
   });
 
   const sendRequest = useCallback(
-    async function (requestData) {
-      // console.log('async function in custom hook');
+    async (requestData) => {
       dispatch({ type: 'SEND' });
+
       try {
         const responseData = await requestFunction(requestData);
-        // console.log('responseData', responseData);
         dispatch({ type: 'SUCCESS', responseData });
       } catch (error) {
         dispatch({
