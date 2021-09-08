@@ -1,35 +1,26 @@
+import useHttp from '../hooks/use-http';
+import { useEffect } from 'react';
+
 import QuoteList from '../components/quotes/QuoteList';
-// import { DUMMY_DATA } from '../dummy-data';
+import { getAllQuotes } from '../lib/api';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
 
-
-const DUMMY_DATA = [
-  {
-    id: 'b1',
-    title: 'Harry Potter and Deathly Hallows part 1',
-    author: 'J.K. Rowling'
-  },
-  {
-    id: 'b2',
-    title: 'Harry Potter and Deathly Hallows part 2',
-    author: 'J.K. Rowling'
-  },
-  {
-    id: 'b3',
-    title: 'Lord of the Rings the fellowship of the Ring',
-    author: 'J.R.R. Tolien'
-  },
-  {
-    id: 'b4',
-    title: 'Lord of the Rings the return of the King',
-    author: 'J.R.R. Tolien'
-  },
-];
 
 const AllQuotes = () => {
   console.log('AllQuotes');
-  return (
-    <QuoteList data={DUMMY_DATA} />
-  );
+  const { sendRequest, status, data: loadedQuotes, error } = useHttp(getAllQuotes, true);
+
+  useEffect(() => {
+    console.log('AllQuotes effect');
+    sendRequest();
+  }, [sendRequest])
+
+  if (status === "pending") return <div className="centered"><LoadingSpinner /></div>
+  if (status === "completed" && error) return <div>Something went wrong</div>
+
+  if (status === "completed" && (!loadedQuotes || loadedQuotes.length === 0)) return <div>No quotes found!</div>
+
+  return <QuoteList data={loadedQuotes} />
 }
 
 

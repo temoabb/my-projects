@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-import { DUMMY_DATA } from "../dummy-data";
+import useHttp from "../hooks/use-http";
+import { getSingleQuote } from "../lib/api";
 
 import SingleQuote from '../components/quotes/SingleQuote';
+import LoadingSpinner from "../components/ui/LoadingSpinner";
 
 const QuoteDetail = () => {
   console.log('QuoteDetail');
@@ -10,16 +12,22 @@ const QuoteDetail = () => {
   const params = useParams();
   const { quoteId } = params;
 
-  // const location = useLocation();
-  // const { pathname } = location;
+  const { sendRequest: getSingleQuoteData, status, error, data: singleQuoteData } = useHttp(getSingleQuote, true);
 
-  const desiredQuote = DUMMY_DATA.find(quote => quote.id === quoteId);
+  console.log(status);
 
-  if (!desiredQuote) return <p>No quote found!</p>;
+  useEffect(() => {
+    getSingleQuoteData(quoteId);
+  }, [getSingleQuoteData, quoteId]);
 
-  const { title, author } = desiredQuote;
 
-  return <SingleQuote quote={title} author={author} />
+  if (status === 'pending') return <div className="centered"><LoadingSpinner /></div>;
+
+  if (error) return <div className="centere"><h1>Something went wrong!</h1></div>;
+
+  // if (!singleQuoteData.quote) return <div className="centered">No data found</div>
+
+  if (status === 'completed') return <SingleQuote quote={singleQuoteData.quote} author={singleQuoteData.author} />
 };
 
 export default QuoteDetail;

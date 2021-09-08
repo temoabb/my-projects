@@ -12,7 +12,7 @@ const QuoteList = ({ data }) => {
           key={item.id}
           author={item.author}
           quoteId={item.id}
-          title={item.title}
+          title={item.quote}
         />
       ))}
     </ul>

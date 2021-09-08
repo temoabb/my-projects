@@ -46,8 +46,9 @@ const QuoteForm = ({ isLoading, onPostEnteredData }) => {
           return `You are going to go back: ${location.pathname}! Are you sure you want to leave? Everything will be lost!`
         }}
       />
+      {isLoading && <div className="centered"><LoadingSpinner /></div>}
+
       <Card>
-        {isLoading && <LoadingSpinner />}
         <form onSubmit={submitHandler} onFocus={formFocusHandler} className={classes.form}>
           <div className={classes.control}>
             <label htmlFor="author">Author:</label>

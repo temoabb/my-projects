@@ -36,10 +36,12 @@ const useHttp = (requestFunction, isPending = false) => {
   const sendRequest = useCallback(
     async requestData => {
       dataDispatch({ type: 'SENT' });
+
       try {
         const responseData = await requestFunction(requestData);
-        console.log('response in hook', responseData);
+        // console.log('response in hook', responseData);
         dataDispatch({ type: 'SUCCESS', payload: responseData })
+
       } catch (error) {
         dataDispatch({
           type: 'ERROR',
