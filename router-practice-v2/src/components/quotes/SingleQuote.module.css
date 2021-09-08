@@ -1,0 +1,35 @@
+.quotecard {
+  /* border: 1px solid teal; */
+  width: 90%;
+  max-width: 40rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.quote {
+  background-color: rgb(75, 57, 57);
+  background-color: goldenrod;
+  color: white;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.newcommentbtn {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.loadbtn {
+  display: block; 
+  width: 100%; 
+  margin-top: 1rem;
+  font-size: 1.5rem;
+
+}
+
+.quote h1 {
+  margin-bottom: 2rem;
+}
+
+.quote p {
+  font-style: italic;
+}

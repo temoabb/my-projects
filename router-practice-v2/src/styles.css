@@ -1,0 +1,20 @@
+.centered {
+  text-align: center;
+}
+
+.btn {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  /* font-size: 1rem; */
+  color: white;
+}
+
+.btn-success {
+  background-color: teal;
+}
+
+.btn-success:hover {
+  background-color: rgb(15, 170, 170);
+}

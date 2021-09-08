@@ -1,20 +1,20 @@
 import { NavLink } from 'react-router-dom';
-import { Fragment } from "react"
+import { Fragment } from "react";
+import classes from './Layout.module.css';
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <Fragment>
-      <header>
+      <header className={classes.header}>
+        <NavLink className={classes.mainpage} to="/">Router</NavLink>
         <nav>
-          <h1>React-router</h1>
           <ul>
-            <NavLink to="/quotes">All quotes</NavLink>
+            <li><NavLink className={classes.navlink} activeClassName={classes.active} to="/quotes">All quotes</NavLink></li>
+            <li><NavLink className={classes.navlink} activeClassName={classes.active} to="/new-quote">Create quote</NavLink></li>
           </ul>
         </nav>
       </header>
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
     </Fragment>
   )
 };

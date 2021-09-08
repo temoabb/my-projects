@@ -1,0 +1,25 @@
+.control textarea {
+  width: 100%;
+  border-radius: 6px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  outline: none;
+  border: 1px solid gainsboro;
+}
+
+.control label {
+  display: block;
+}
+
+.control input {
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid gainsboro; 
+  margin-bottom: 0.75rem;
+}
+.actions button {
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  font-size: 1rem;
+}

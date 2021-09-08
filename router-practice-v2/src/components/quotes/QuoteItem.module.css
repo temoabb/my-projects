@@ -1,0 +1,31 @@
+.singlequote {
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: teal;
+  margin: 1rem 0;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.singlequote h5 {
+  font-style: italic;
+  padding-top: 1rem;
+}
+
+
+.singlequote a {
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 6px;
+  color: white;
+  border:1px solid white;
+}
+
+.singlequote a:hover {
+  background-color: teal;
+  background-color: white;
+  color: teal;
+}
